@@ -57,7 +57,7 @@
                                completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
     if (!data || error) return;
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-    NSArray *emotes = json["emotes"];
+    NSArray *emotes = json[@"emotes"];
     for (NSDictionary *emote in emotes) {
       NSString *code = emote[@"name"] ?: emote[@"data"][@"name"];
       NSDictionary *dataDict = emote[@"data"] ?: @{};
